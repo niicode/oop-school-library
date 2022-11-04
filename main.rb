@@ -1,4 +1,4 @@
-require "./app"
+require './app'
 
 class Main
   puts 'Welcome to School Library App'
