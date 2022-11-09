@@ -59,14 +59,24 @@ class App
     name = gets.chomp
     print 'Should parent permission be assigned? [Y/N]:'
     parent_permission = gets.chomp.downcase
+    save_student = []
+    save = Persist.new('person.json')
     case parent_permission
     when 'n'
       student = Student.new(age, nil, name, parent_permission: false)
       @people.push(student)
+      @people.each do |student|
+        save_student << { age: student.age, classroom: student.classroom, name: student.name }
+      end
+      save.save(save_student)
       puts 'Awesome! Student created successfully'
     when 'y'
       student = Student.new(age, nil, name, parent_permission: true)
       @people.push(student)
+      @people.each do |student|
+        save_student << { age: student.age, classroom: student.classroom, name: student.name }
+      end
+      save.save(save_student)
       puts 'Awesome! Student created successfully'
     end
   end
@@ -82,8 +92,8 @@ class App
     teacher = Teacher.new(age, specialization, name)
     @people.push(teacher)
     _teacher = []
-    @books.each do |teacher|
-      _teacher << { title: teacher.title, author: teacher.author }
+    @people.each do |teacher|
+      _teacher << { name: teacher.name, age: teacher.age, specialization: teacher.specialization }
     end
     store = Persist.new('person.json')
     store.save(_teacher)
@@ -120,6 +130,14 @@ class App
     date = gets.chomp
     rental = Rental.new(date, @books[book_index], @people[person_index])
     @rentals.push(rental)
+    _rental = []
+    @rentals.each do |rental|
+      _rental << { date: rental.date, book: rental.book, person: rental.person }
+    end
+
+    store = Persist.new('rental.json')
+    store.save(_rental)
+
     puts 'Awesome! The book has been rented'
   end
 

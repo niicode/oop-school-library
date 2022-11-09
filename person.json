@@ -1,1 +1,7 @@
-[]
+[
+  {
+    "name": "nii",
+    "age": "23",
+    "specialization": "maths"
+  }
+]
