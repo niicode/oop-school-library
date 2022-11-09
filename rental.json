@@ -1,7 +1,22 @@
 [
   {
-    "date": "23/11/2023",
-    "book": "#<Book:0x000000014f90ff38>",
-    "person": "#<Teacher:0x000000014f8f0890>"
+    "date": "23/10/2022",
+    "book": "Pair Programming",
+    "person": "Youngest"
+  },
+  {
+    "date": "20/1/2022",
+    "book": "Pair Programming",
+    "person": "Older"
+  },
+  {
+    "date": "10/10/2022",
+    "book": "Pair Programming",
+    "person": "Older"
+  },
+  {
+    "date": "10/9/2022",
+    "book": "Young Shall Grow",
+    "person": "Youngest"
   }
 ]
