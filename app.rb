@@ -54,11 +54,11 @@ class App
     parent_permission = gets.chomp.downcase
     case parent_permission
     when 'n'
-      student = Student.new(age: age, classroom: nil, name: name, parent_permission: false)
+      student = Student.new(age, nil, name, parent_permission: false)
       @people.push(student)
       puts 'Awesome! Student created successfully'
     when 'y'
-      student = Student.new(age: age, classroom: nil, name: name, parent_permission: true)
+      student = Student.new(age, nil, name, parent_permission: true)
       @people.push(student)
       puts 'Awesome! Student created successfully'
     end
@@ -72,7 +72,7 @@ class App
     name = gets.chomp
     print 'What\'s the specialization?:'
     specialization = gets.chomp
-    teacher = Teacher.new(age: age, specialization: specialization, name: name)
+    teacher = Teacher.new(age, specialization, name)
     @people.push(teacher)
     puts 'Awesome! Teacher created successfully'
   end
