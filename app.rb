@@ -157,12 +157,7 @@ class App
     end
     person_index = gets.chomp.to_i
     rentals.each do |rental|
-      if rental['person_id]' == people['id']
-        puts "Date: #{rental['date']}, Book: #{rental['book']['title']}, Person: #{rental['person']['name']}"
-      end
+        puts "id: #{rental['person_id']}, Date: #{rental['date']}, Book: #{rental['book']}, Person: #{rental['person']}"
     end
   end
 end
-
-
- 0) 
