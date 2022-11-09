@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require './app'
 
 class Main
@@ -23,25 +25,25 @@ class Main
 
   selected_option = App.new
 
-  # loop do
-  #   case option
-  #   when 1
-  #     selected_option.list_books
-  #   when 2
-  #     selected_option.list_people
-  #   when 3
-  #     selected_option.create_person
-  #   when 4
-  #     selected_option.create_book
-  #   when 5
-  #     selected_option.create_rental
-  #   when 6
-  #     selected_option.list_rental
-  #   when 7
-  #     puts 'Thank you for using this app'
-  #     exit
-  #   else
-  #     puts 'Invalid Option. Enter number between 1 an 7'
-  #   end
-  # end
+  loop do
+    case option
+    when 1
+      selected_option.list_books
+    when 2
+      selected_option.list_people
+    when 3
+      selected_option.create_person
+    when 4
+      selected_option.create_book
+    when 5
+      selected_option.create_rental
+    when 6
+      selected_option.list_rental
+    when 7
+      puts 'Thank you for using this app'
+      exit
+    else
+      puts 'Invalid Option. Enter number between 1 an 7'
+    end
+  end
 end
