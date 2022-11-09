@@ -132,7 +132,7 @@ class App
     @rentals.push(rental)
     _rental = []
     @rentals.each do |rental|
-      _rental << { date: rental.date, book: rental.book, person: rental.person }
+      _rental << { date: rental.date, book: rental.book.title, person: rental.person.name }
     end
 
     store = Persist.new('rental.json')
