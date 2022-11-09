@@ -3,6 +3,7 @@ require './person_file'
 require './rental'
 require './student_file'
 require './teacher_file'
+require './persist'
 
 class App
   def initialize
@@ -19,6 +20,12 @@ class App
     author = gets.chomp
     book = Book.new(title, author)
     @books.push(book)
+    _books = []
+    @books.each do |book|
+      _books << { title: book.title, author: book.author }
+    end
+    store = Persist.new('books.json')
+    store.save(_books)
     puts 'Awesome! Book created successfully'
   end
 
@@ -74,6 +81,12 @@ class App
     specialization = gets.chomp
     teacher = Teacher.new(age: age, specialization: specialization, name: name)
     @people.push(teacher)
+    _teacher = []
+    @books.each do |teacher|
+      _teacher << { title: teacher.title, author: teacher.author }
+    end
+    store = Persist.new('person.json')
+    store.save(_teacher)
     puts 'Awesome! Teacher created successfully'
   end
 
