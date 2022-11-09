@@ -31,22 +31,26 @@ class App
 
   # List all books
   def list_books
-    if @books.empty?
+    load_books = Persist.new('books.json')
+    books = load_books.load
+    if books.empty?
       puts 'Aww, no books found'
     else
-      @books.each do |book|
-        puts "#{book.title} by #{book.author}"
+      books.each do |book|
+        puts "#{book["title"]} by #{book['author']}"
       end
     end
   end
 
   # List people
   def list_people
-    if @people.empty?
+    load_people = Persist.new('person.json')
+    people = load_people.load
+    if people.empty?
       puts 'Hmm, no person found'
     else
-      @people.each do |person|
-        puts "Name: #{person.name} | Age: #{person.age} | ID: #{person.id}"
+      people.each do |person|
+        puts "Name: #{person['name']} | Age: #{person['age']} | id: #{person['id']}"
       end
     end
   end
@@ -66,7 +70,7 @@ class App
       student = Student.new(age, nil, name, parent_permission: false)
       @people.push(student)
       @people.each do |student|
-        save_student << { age: student.age, classroom: student.classroom, name: student.name }
+        save_student << { age: student.age, classroom: student.classroom, name: student.name, id: student.id }
       end
       save.save(save_student)
       puts 'Awesome! Student created successfully'
@@ -74,7 +78,7 @@ class App
       student = Student.new(age, nil, name, parent_permission: true)
       @people.push(student)
       @people.each do |student|
-        save_student << { age: student.age, classroom: student.classroom, name: student.name }
+        save_student << { age: student.age, classroom: student.classroom, name: student.name, id: student.id }
       end
       save.save(save_student)
       puts 'Awesome! Student created successfully'
@@ -132,7 +136,7 @@ class App
     @rentals.push(rental)
     _rental = []
     @rentals.each do |rental|
-      _rental << { date: rental.date, book: rental.book.title, person: rental.person.name }
+      _rental << { date: rental.date, book: rental.book.title, person: rental.person.name, person_id: rental.person.id}
     end
 
     store = Persist.new('rental.json')
@@ -143,15 +147,22 @@ class App
 
   # List all rentals for a given person id.
   def list_rental
+    load_rentals = Persist.new('rental.json')
+    rentals = load_rentals.load
+    load_people = Persist.new('person.json')
+    people = load_people.load
     puts 'Whose rental records would you like to see?'
-    @people.each_with_index do |person, index|
-      puts "#{index}) [#{person.class}] Name: #{person.name}, ID: #{person.id}, Age: #{person.age}"
+    people.each_with_index do |person, index|
+      puts "#{index}) [#{person['class']}] Name: #{person['name']}, id: #{person['id']}, Age: #{person['age']}"
     end
     person_index = gets.chomp.to_i
-    @rentals.each do |rental|
-      if rental.person.id == @people[person_index].id
-        puts "Date: #{rental.date}, Book: #{rental.book.title}, Person: #{rental.person.name}"
+    rentals.each do |rental|
+      if rental['person_id]' == people['id']
+        puts "Date: #{rental['date']}, Book: #{rental['book']['title']}, Person: #{rental['person']['name']}"
       end
     end
   end
 end
+
+
+ 0) 
