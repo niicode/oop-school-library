@@ -56,7 +56,6 @@ class App
   end
 
   # Create student
-  # disable Metrics/MethodLength
   def create_student
     print 'What\'s the age of the new student?:'
     age = gets.chomp
@@ -113,6 +112,7 @@ class App
   end
 
   # create rental
+  # rubocop:disable Metrics/MethodLength
   def create_rental
     puts 'Let\'s begin by selecting a book from the following list'
     @books.each_with_index do |book, index|
