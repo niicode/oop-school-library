@@ -113,6 +113,7 @@ class App
   end
 
   # rubocop:disable Metrics/MethodLength
+  # rubocop:enable
   def create_rental
     puts 'Let\'s begin by selecting a book from the following list'
     @books.each_with_index do |book, index|
@@ -149,7 +150,7 @@ class App
     people.each_with_index do |person, index|
       puts "#{index}) [#{person['class']}] Name: #{person['name']}, id: #{person['id']}, Age: #{person['age']}"
     end
-    person_index = gets.chomp.to_i
+    gets.chomp.to_i
     rentals.each do |r|
       puts "id: #{r['person_id']}, Date: #{r['date']}, Book: #{r['book']}, Person: #{r['person']}"
     end
