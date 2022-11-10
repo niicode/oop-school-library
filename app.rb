@@ -121,9 +121,7 @@ class App
     book_index = gets.chomp.to_i
     puts 'Now let\'s select a person from the following list'
     @people.each_with_index do |person, index|
-      puts "#{index}) [#{person.class}] Name: #{person.name},
-       ID: #{person.id},
-       Age: #{person.age}"
+      puts "#{index}) [#{person.class}] Name: #{person.name}, ID: #{person.id}, Age: #{person.age}"
     end
     person_index = gets.chomp.to_i
     print 'Lastly lets add a date:'
