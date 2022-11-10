@@ -138,7 +138,7 @@ class App
 
     puts 'Awesome! The book has been rented'
   end
-  
+
   # rubocop:enable
   # List all rentals for a given person id.
   def list_rental
