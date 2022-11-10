@@ -112,7 +112,7 @@ class App
     end
   end
 
-  # rubocop:disable Metrics/MethodLength  # rubocop:enable
+  # rubocop:disable Metrics/MethodLength
   def create_rental
     puts 'Let\'s begin by selecting a book from the following list'
     @books.each_with_index do |book, index|
@@ -138,7 +138,8 @@ class App
 
     puts 'Awesome! The book has been rented'
   end
-
+  
+  # rubocop:enable
   # List all rentals for a given person id.
   def list_rental
     load_rentals = Persist.new('rental.json')
