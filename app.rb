@@ -22,8 +22,8 @@ class App
     @books.push(book)
     load_books = Persist.new('books.json')
     books = load_books.load
-    @books.each do |book|
-      books << { title: book.title, author: book.author }
+    @books.each do |_book|
+      books << { title: _book.title, author: _book.author }
     end
     store = Persist.new('books.json')
     store.save(books)
@@ -38,7 +38,7 @@ class App
       puts 'Aww, no books found'
     else
       books.each do |book|
-        puts "#{book["title"]} by #{book['author']}"
+        puts "#{book['title']} by #{book['author']}"
       end
     end
   end
@@ -70,8 +70,8 @@ class App
 
     student = Student.new(age, nil, name, parent_permission: parent_permission)
     @people.push(student)
-    @people.each do |student|
-      save_student << { age: student.age, name: student.name, id: student.id }
+    @people.each do |s|
+      save_student << { age: s.age, name: s.name, id: s.id }
     end
     save.save(save_student)
     puts 'Awesome! Student created successfully'
@@ -88,10 +88,10 @@ class App
     teacher = Teacher.new(age, specialization, name)
     @people.push(teacher)
     store = Persist.new('person.json')
-    _teacher = store.load
+    teach = store.load
 
-    @people.each do |teacher|
-      _teacher << { age: teacher.age, name: teacher.name, id: teacher.id }
+    @people.each do |t|
+      teach << { age: t.age, name: t.name, id: t.id }
     end
 
     store.save(_teacher)
@@ -121,7 +121,9 @@ class App
     book_index = gets.chomp.to_i
     puts 'Now let\'s select a person from the following list'
     @people.each_with_index do |person, index|
-      puts "#{index}) [#{person.class}] Name: #{person.name}, ID: #{person.id}, Age: #{person.age}"
+      puts "#{index}) [#{person.class}] Name: #{person.name},
+       ID: #{person.id},
+       Age: #{person.age}"
     end
     person_index = gets.chomp.to_i
     print 'Lastly lets add a date:'
@@ -130,7 +132,9 @@ class App
     @rentals.push(rental)
     _rental = []
     @rentals.each do |rental|
-      _rental << { date: rental.date, book: rental.book.title, person: rental.person.name, person_id: rental.person.id }
+      _rental << { date: rental.date, book: rental.book.title,
+                   person: rental.person.name,
+                   person_id: rental.person.id }
     end
 
     store = Persist.new('rental.json')
