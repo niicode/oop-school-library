@@ -13,7 +13,9 @@ class Persist
   end
 
   def load
-    data_to_load = File.read(@path_name)
-    JSON.parse(data_to_load)
+    return [] unless File.exist?(@path_name)
+
+    file = File.read(@path_name)
+    JSON.parse(file)
   end
 end
