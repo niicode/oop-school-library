@@ -22,8 +22,8 @@ class App
     @books.push(book)
     load_books = Persist.new('books.json')
     books = load_books.load
-    @books.each do |_book|
-      books << { title: _book.title, author: _book.author }
+    @books.each do |b|
+      books << { title: b.title, author: b.author }
     end
     store = Persist.new('books.json')
     store.save(books)
@@ -57,6 +57,7 @@ class App
   end
 
   # Create student
+  # disable Metrics/MethodLength
   def create_student
     print 'What\'s the age of the new student?:'
     age = gets.chomp
@@ -130,11 +131,11 @@ class App
     date = gets.chomp
     rental = Rental.new(date, @books[book_index], @people[person_index])
     @rentals.push(rental)
-    _rental = []
-    @rentals.each do |rental|
-      _rental << { date: rental.date, book: rental.book.title,
-                   person: rental.person.name,
-                   person_id: rental.person.id }
+    ren = []
+    @rentals.each do |r|
+      ren << { date: r.date, book: r.book.title,
+                   person: r.person.name,
+                   person_id: r.person.id }
     end
 
     store = Persist.new('rental.json')
@@ -154,8 +155,8 @@ class App
       puts "#{index}) [#{person['class']}] Name: #{person['name']}, id: #{person['id']}, Age: #{person['age']}"
     end
     person_index = gets.chomp.to_i
-    rentals.each do |rental|
-      puts "id: #{rental['person_id']}, Date: #{rental['date']}, Book: #{rental['book']}, Person: #{rental['person']}"
+    rentals.each do |r|
+      puts "id: #{r['person_id']}, Date: #{r['date']}, Book: #{r['book']}, Person: #{r['person']}"
     end
   end
 end
