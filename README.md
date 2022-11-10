@@ -23,13 +23,19 @@ School library is a console app that uses object oriented programming technique.
 
 - On the command line, at the project's root, run `bundle install` to install app dependencies
 
-## Author
+## Authors
 
 👤 **Nii Darku**
 
 - GitHub: [@githubhandle](https://github.com/niicode)
 - Twitter: [@twitterhandle](https://twitter.com/_niicode)
 - LinkedIn: [LinkedIn](https://www.linkedin.com/in/niicode)
+
+👤 **Sendy Inieke**
+
+- GitHub: [@uisendy](https://github.com/uisendy)
+
+- LinkedIn: [sendyinieke](https://www.linkedin.com/in/sendyinieke/)
 
 ## 🤝 Contributing
 
@@ -48,4 +54,4 @@ Give a ⭐️ if you like this project!
 
 ## 📝 License
 
-This project is [MIT](./MIT) licensed.
+This project is [MIT](./MIT.md) licensed.
