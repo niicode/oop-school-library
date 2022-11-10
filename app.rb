@@ -68,24 +68,13 @@ class App
     save = Persist.new('person.json')
     save_student = save.load
     
-    case parent_permission
-    when 'n'
-      student = Student.new(age, nil, name, parent_permission: false)
-      @people.push(student)
-      @people.each do |student|
-        save_student << { age: student.age, classroom: student.classroom, name: student.name, id: student.id }
-      end
-      save.save(save_student)
-      puts 'Awesome! Student created successfully'
-    when 'y'
-      student = Student.new(age, nil, name, parent_permission: true)
-      @people.push(student)
-      @people.each do |student|
-        save_student << { age: student.age, name: student.name, id: student.id }
-      end
-      save.save(save_student)
-      puts 'Awesome! Student created successfully'
+    student = Student.new(age, nil, name, parent_permission: parent_permission)
+    @people.push(student)
+    @people.each do |student|
+      save_student << { age: student.age, name: student.name, id: student.id }
     end
+    save.save(save_student)
+    puts 'Awesome! Student created successfully'
   end
 
   # Create teacher
