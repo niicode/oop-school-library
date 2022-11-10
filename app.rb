@@ -67,7 +67,7 @@ class App
     # save_student = []
     save = Persist.new('person.json')
     save_student = save.load
-    
+
     student = Student.new(age, nil, name, parent_permission: parent_permission)
     @people.push(student)
     @people.each do |student|
@@ -89,11 +89,11 @@ class App
     @people.push(teacher)
     store = Persist.new('person.json')
     _teacher = store.load
-    
+
     @people.each do |teacher|
       _teacher << { age: teacher.age, name: teacher.name, id: teacher.id }
     end
-    
+
     store.save(_teacher)
     puts 'Awesome! Teacher created successfully'
   end
@@ -130,7 +130,7 @@ class App
     @rentals.push(rental)
     _rental = []
     @rentals.each do |rental|
-      _rental << { date: rental.date, book: rental.book.title, person: rental.person.name, person_id: rental.person.id}
+      _rental << { date: rental.date, book: rental.book.title, person: rental.person.name, person_id: rental.person.id }
     end
 
     store = Persist.new('rental.json')
@@ -151,7 +151,7 @@ class App
     end
     person_index = gets.chomp.to_i
     rentals.each do |rental|
-        puts "id: #{rental['person_id']}, Date: #{rental['date']}, Book: #{rental['book']}, Person: #{rental['person']}"
+      puts "id: #{rental['person_id']}, Date: #{rental['date']}, Book: #{rental['book']}, Person: #{rental['person']}"
     end
   end
 end
