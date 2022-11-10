@@ -112,8 +112,7 @@ class App
     end
   end
 
-  # rubocop:disable Metrics/MethodLength
-  # rubocop:enable
+  # rubocop:disable Metrics/MethodLength  # rubocop:enable
   def create_rental
     puts 'Let\'s begin by selecting a book from the following list'
     @books.each_with_index do |book, index|
