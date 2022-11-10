@@ -12,7 +12,6 @@ class App
     @rentals = []
   end
 
-  # Create a book
   def create_book
     print 'Whats the book title?:'
     title = gets.chomp
